@@ -85,7 +85,6 @@ L.Control.GeoSearch = L.Control.extend({
           $(input).trigger("click");
         } else {
           L.DomUtil.addClass(form, 'displayNone'); // hide form
-          $(input).blur();
         }
 
       });
@@ -93,9 +92,8 @@ L.Control.GeoSearch = L.Control.extend({
     // hide form when click on map
     L.DomEvent
       .on(this._map, "click", function(){
-        if ($(form).is(":visible")) {
-          $(input).blur();
-          $(form).hide(); // hide form
+        if (!L.DomUtil.hasClass(form, displayNoneClass)) {
+          L.DomUtil.addClass(form, 'displayNone'); // hide form
         }
       }, this);
 
