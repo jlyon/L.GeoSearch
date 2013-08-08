@@ -1,65 +1,69 @@
 .displayNone {
-	display: none;
+  display: none;
 }
 
 .leaflet-control-geosearch {
-	position: relative;
+  position: relative;
 }
 
 .leaflet-control-geosearch a {
-	-webkit-border-radius: 4px;
-			border-radius: 4px;
-	border-bottom: none;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  border-bottom: none;
 }
 
 .leaflet-control-geosearch a.glass {
-	background-image: url(../img/geosearch.png);
-	background-size: 100% 100%;
+  background-image: url(../img/geosearch.png);
+  background-size: 100% 100%;
 }
 
 .leaflet-control-geosearch a.spinner {
-	background-image: url(../img/spinner.gif);
-	background-position: 50% 50%;
+  background-image: url(../img/spinner.gif);
+  background-position: 50% 50%;
 }
 
 .leaflet-control-geosearch a.alert {
-	background-image: url(../img/alert.png);
-	background-size: 64% 64%;
+  background-image: url(../img/alert.png);
+  background-size: 64% 64%;
 }
 
 .leaflet-control-geosearch a:hover {
-	border-bottom: none;
+  border-bottom: none;
 }
 
 .leaflet-control-geosearch form {
-	position: absolute;
-	top: 0;
-	left: 22px;
-	box-shadow: 0 1px 7px rgba(0, 0, 0, 0.65);
-	-webkit-border-radius: 4px;
-			border-radius: 0px 4px 4px 0px;
-	z-index: -1;
-	background: #FFF;
-	height: 26px;
-	padding: 0 6px 0 6px;
+  background: none repeat scroll 0 0 #FFFFFF;
+  border-radius: 0 4px 4px 0;
+  height: 26px;
+  margin: -26px 0 0 22px;
+  padding: 0;
+}
+
+.leaflet-touch .leaflet-control-geosearch form {
+  background: none repeat scroll 0 0 #F4F4F4;
+  margin: -30px 0 0 24px;
+  height: 30px;
 }
 
 .leaflet-control-geosearch form input {
-	width: 200px;
-	border: none;
-	outline: none;
-	margin: 0;
-	padding: 0;
-	font-size: 12px;
-	margin-top: 5px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  display: block;
+  margin: 0px 2px 0 9px;
+  padding: 5px 4px 4px 4px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  vertical-align: middle;
+}
+
+.leaflet-touch .leaflet-control-geosearch form input {
 }
 
 .leaflet-control-geosearch .message {
-	position: absolute;
-	top: 26px;
-	left: 0px;
-	width: 226px;
-	color: #FFF;
-	background: rgb(40, 40, 40);
-	padding: 4px 0 4px 8px;
+  position: absolute;
+  top: 26px;
+  left: 0px;
+  width: 226px;
+  color: #FFF;
+  background: rgb(40, 40, 40);
+  padding: 4px 0 4px 8px;
 }
