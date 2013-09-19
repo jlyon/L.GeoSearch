@@ -155,6 +155,7 @@ class L.Control.GeoSearch extends L.Control
       @_printError @options.notFoundMessage
     else
       @_show results
+      @_map.fireEvent 'geosearch_foundlocations', {Location: location}
 
     return results
 
@@ -166,6 +167,7 @@ class L.Control.GeoSearch extends L.Control
       else
         @_positionMarker.setLatLng [location.Y, location.X]
     @_map.setView [location.Y, location.X], @options.zoomLevel, false
+    @_map.fireEvent 'geosearch_showlocation', {Location: location}
     @_cancelSearch()
 
   _isShowingError: false
