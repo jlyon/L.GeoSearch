@@ -9,8 +9,8 @@
 		<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
 		<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 
-		<script src="../src/js/l.control.geosearch.js"></script>
-		<script src="../src/js/l.geosearch.provider.openstreetmap.js"></script>
+		<script src="../src/js/leaflet.control.geosearch.js"></script>
+		<script src="../src/js/leaflet.geosearch.provider.openstreetmap.js"></script>
 		<link rel="stylesheet" href="../src/css/leaflet-control-geosearch.css" />
 	</head>
 <body>
@@ -26,7 +26,7 @@
 			center: new L.LatLng(53.2, 5.8), zoom: 12
 		});
 
-		new L.control.GeoSearch({
+		new L.Control.GeoSearch({
 			provider: new L.GeoSearch.Provider.OpenStreetMap()
 		}).addTo(map);
 

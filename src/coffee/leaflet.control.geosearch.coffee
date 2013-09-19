@@ -13,7 +13,7 @@ L.GeoSearch.Result = (x, y, label) ->
   @Y = y
   @Label = label
 
-class L.control.GeoSearch extends L.Control
+class L.Control.GeoSearch extends L.Control
   options:
     position: "topleft"
     provider: null
@@ -52,6 +52,7 @@ class L.control.GeoSearch extends L.Control
     input = L.DomUtil.create("input", null, form)
     input.placeholder = @options.searchLabel
     input.setAttribute "id", "inputGeosearch"
+    input.setAttribute "autocomplete", "off"
     @_searchInput = input
 
     #add events form the link(_btnSearch)

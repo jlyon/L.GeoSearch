@@ -16,7 +16,7 @@
     return this.Label = label;
   };
 
-  L.control.GeoSearch = (function(_super) {
+  L.Control.GeoSearch = (function(_super) {
     __extends(GeoSearch, _super);
 
     GeoSearch.prototype.options = {
@@ -55,6 +55,7 @@
       input = L.DomUtil.create("input", null, form);
       input.placeholder = this.options.searchLabel;
       input.setAttribute("id", "inputGeosearch");
+      form.setAttribute("autocomplete", "off");
       this._searchInput = input;
       L.DomEvent.on(this._btnSearch, "click", L.DomEvent.stop).on(this._btnSearch, "click", function() {
         if (L.DomUtil.hasClass(form, "displayNone")) {

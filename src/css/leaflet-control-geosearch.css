@@ -66,6 +66,8 @@
   transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
   vertical-align: middle;
   width: 94%;
+  outline: none;
+  height: 18px;
 }
 
 .leaflet-touch .leaflet-control-geosearch form input {
