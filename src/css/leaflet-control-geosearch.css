@@ -113,6 +113,8 @@
 }
 .leaflet-geosearch-suggestion:hover, .leaflet-geosearch-suggestion-selected {
   background-color: rgba(117,117,117, 1);
+  cursor: pointer;
+  cursor: hand;
 }
 /*icon css adapted from leaflet-search*/
 .leaflet-geosearch-submit-button-container {
