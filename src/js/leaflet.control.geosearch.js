@@ -50,12 +50,13 @@ L.Control.GeoSearch = (function(_super) {
     this._btnSearch.href = "#";
     this._btnSearch.title = this.options.searchLabel;
     this._changeIcon("glass");
-    if (this.options.open) {
+    if (!this.options.open) {
       formClass = "displayNone";
     } else {
       formClass = "";
     }
-    form = L.DomUtil.create("form", "displayNone", this._container);
+    console.log(this.options);
+    form = L.DomUtil.create("form", formClass, this._container);
     form.setAttribute("autocomplete", "off");
     input = L.DomUtil.create("input", null, form);
     input.placeholder = this.options.searchLabel;

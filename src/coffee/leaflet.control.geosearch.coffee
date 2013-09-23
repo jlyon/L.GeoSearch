@@ -47,8 +47,9 @@ class L.Control.GeoSearch extends L.Control
     @_changeIcon "glass"
 
     # create the form that will contain the input
-    if @options.open then formClass = "displayNone" else formClass = ""
-    form = L.DomUtil.create("form", "displayNone", @_container)
+    if !@options.open then formClass = "displayNone" else formClass = ""
+    console.log @options
+    form = L.DomUtil.create("form", formClass, @_container)
     form.setAttribute( "autocomplete", "off" );
 
     # create the input, and set its placeholder ("Enter address") text
