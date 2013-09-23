@@ -48,7 +48,6 @@ class L.Control.GeoSearch extends L.Control
 
     # create the form that will contain the input
     if !@options.open then formClass = "displayNone" else formClass = ""
-    console.log @options
     form = L.DomUtil.create("form", formClass, @_container)
     form.setAttribute( "autocomplete", "off" );
 
@@ -66,7 +65,7 @@ class L.Control.GeoSearch extends L.Control
       .on clickElement, "click", =>
         if L.DomUtil.hasClass(form, "displayNone") or @options.open
           L.DomUtil.removeClass form, "displayNone" # unhide form
-          $(input).select()
+          #$(input).select()
           $(input).focus()
           console.log 'click'
           $(input).trigger "click"
@@ -312,6 +311,7 @@ class L.Control.GeoSearch extends L.Control
       @_isShowingError = false
 
   _clearUserSearchInput: ->
+    console.log 'clear vak'
     if @options.clearValue then @_searchInput.value = ""
     @_hideAutocomplete()
 

@@ -55,7 +55,6 @@ L.Control.GeoSearch = (function(_super) {
     } else {
       formClass = "";
     }
-    console.log(this.options);
     form = L.DomUtil.create("form", formClass, this._container);
     form.setAttribute("autocomplete", "off");
     input = L.DomUtil.create("input", null, form);
@@ -71,7 +70,6 @@ L.Control.GeoSearch = (function(_super) {
     L.DomEvent.on(clickElement, "click", L.DomEvent.stop).on(clickElement, "click", function() {
       if (L.DomUtil.hasClass(form, "displayNone") || _this.options.open) {
         L.DomUtil.removeClass(form, "displayNone");
-        $(input).select();
         $(input).focus();
         console.log('click');
         return $(input).trigger("click");
@@ -352,6 +350,7 @@ L.Control.GeoSearch = (function(_super) {
   };
 
   GeoSearch.prototype._clearUserSearchInput = function() {
+    console.log('clear vak');
     if (this.options.clearValue) {
       this._searchInput.value = "";
     }
