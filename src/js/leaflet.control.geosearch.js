@@ -225,7 +225,6 @@ L.Control.GeoSearch = (function(_super) {
     this._changeIcon("spinner");
     input = this._container.querySelector("input");
     location = this.options.provider.GetLocations(input.value, this._showLocation);
-    console.log('start search');
     return this._hide();
   };
 
@@ -382,9 +381,9 @@ L.Control.GeoSearch = (function(_super) {
     escapeKey = 27;
     switch (e.keyCode) {
       case enterKey:
-        alert('enter');
         L.DomEvent.preventDefault(e);
-        return this._startSearch();
+        this._startSearch();
+        return false;
     }
   };
 
