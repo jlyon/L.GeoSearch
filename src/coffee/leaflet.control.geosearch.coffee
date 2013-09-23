@@ -65,15 +65,13 @@ class L.Control.GeoSearch extends L.Control
       .on clickElement, "click", =>
         if L.DomUtil.hasClass(form, "displayNone") or @options.open
           L.DomUtil.removeClass form, "displayNone" # unhide form
-          #$(input).select()
+          if @options.clearValue then $(input).select()
           $(input).focus()
-          console.log 'click'
           $(input).trigger "click"
         else
           if not @options.open then @_hide()
 
     #create events for the input
-    console.log 'create events'
     L.DomEvent
       .on(input, "keyup", @_onKeyUp, this)
       .on(input, "keypress", @_onKeyPress, this)
@@ -98,7 +96,6 @@ class L.Control.GeoSearch extends L.Control
     L.DomEvent
       #add onclick event to the map
       .on @_map, "click", ( =>
-        console.log 'click hide'
         @_hide()
       )
 
@@ -192,7 +189,7 @@ class L.Control.GeoSearch extends L.Control
   _cancelSearch: ->
     #clear the input value of the search
     input = @_container.querySelector("input")
-    input.value = "" # clear form
+    if @options.clearValue then input.value = "" # clear form
 
     # show glass icon
     @_changeIcon "glass"
@@ -303,7 +300,6 @@ class L.Control.GeoSearch extends L.Control
     (if @_suggestionBox.hasChildNodes() then @_suggestionBox.childNodes.length else 0)
 
   _onInput: ->
-    console.log 'onInput'
     if @_isShowingError
       # show glass icon
       @_changeIcon "glass"
@@ -311,7 +307,6 @@ class L.Control.GeoSearch extends L.Control
       @_isShowingError = false
 
   _clearUserSearchInput: ->
-    console.log 'clear vak'
     if @options.clearValue then @_searchInput.value = ""
     @_hideAutocomplete()
 
