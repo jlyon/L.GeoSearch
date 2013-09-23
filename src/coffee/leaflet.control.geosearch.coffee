@@ -63,15 +63,17 @@ class L.Control.GeoSearch extends L.Control
     L.DomEvent
       .on(clickElement, "click", L.DomEvent.stop)
       .on clickElement, "click", =>
-        if L.DomUtil.hasClass(form, "displayNone")
+        if L.DomUtil.hasClass(form, "displayNone") or @options.open
           L.DomUtil.removeClass form, "displayNone" # unhide form
           $(input).select()
           $(input).focus()
+          console.log 'click'
           $(input).trigger "click"
         else
           if not @options.open then @_hide()
 
     #create events for the input
+    console.log 'create events'
     L.DomEvent
       .on(input, "keyup", @_onKeyUp, this)
       .on(input, "keypress", @_onKeyPress, this)
@@ -96,6 +98,7 @@ class L.Control.GeoSearch extends L.Control
     L.DomEvent
       #add onclick event to the map
       .on @_map, "click", ( =>
+        console.log 'click hide'
         @_hide()
       )
 
@@ -300,6 +303,7 @@ class L.Control.GeoSearch extends L.Control
     (if @_suggestionBox.hasChildNodes() then @_suggestionBox.childNodes.length else 0)
 
   _onInput: ->
+    console.log 'onInput'
     if @_isShowingError
       # show glass icon
       @_changeIcon "glass"

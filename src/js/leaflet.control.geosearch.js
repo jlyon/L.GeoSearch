@@ -68,10 +68,11 @@ L.Control.GeoSearch = (function(_super) {
       clickElement = this._btnSearch;
     }
     L.DomEvent.on(clickElement, "click", L.DomEvent.stop).on(clickElement, "click", function() {
-      if (L.DomUtil.hasClass(form, "displayNone")) {
+      if (L.DomUtil.hasClass(form, "displayNone") || _this.options.open) {
         L.DomUtil.removeClass(form, "displayNone");
         $(input).select();
         $(input).focus();
+        console.log('click');
         return $(input).trigger("click");
       } else {
         if (!_this.options.open) {
@@ -79,6 +80,7 @@ L.Control.GeoSearch = (function(_super) {
         }
       }
     });
+    console.log('create events');
     L.DomEvent.on(input, "keyup", this._onKeyUp, this).on(input, "keypress", this._onKeyPress, this).on(input, "input", this._onInput, this);
     if (L.Browser.touch) {
       L.DomEvent.on(this._container, "click", L.DomEvent.stop);
@@ -93,6 +95,7 @@ L.Control.GeoSearch = (function(_super) {
     }
     this._message = L.DomUtil.create("div", "leaflet-bar leaflet-geosearch-message displayNone", this._container);
     L.DomEvent.on(this._map, "click", (function() {
+      console.log('click hide');
       return _this._hide();
     }));
     return this._container;
@@ -339,6 +342,7 @@ L.Control.GeoSearch = (function(_super) {
   };
 
   GeoSearch.prototype._onInput = function() {
+    console.log('onInput');
     if (this._isShowingError) {
       this._changeIcon("glass");
       L.DomUtil.addClass(this._message, "displayNone");
